@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  /* background-color: #508c9b; */
+  background-color: #f7dcb9;
+  font-family: "Cairo", sans-serif;
+}
+.container {
+  position: relative;
+  width: 1000px;
+  height: 100vh;
+  background-color: #fff;
+  margin: 0 auto;
+  display: flex;
+}
+.container .sidebar {
+  min-width: 250px;
+  /* background-color: #201e43; */
+  background-color: #914f1e;
+  height: 100%;
+  color: #fff;
+  overflow-y: scroll;
+}
+/* width */
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.sidebar::-webkit-scrollbar-track {
+  background: #914f1e;
+}
+
+/* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+  background: #b5c18e;
+  border-radius: 10px;
+}
+
+.container .sidebar .head {
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .sidebar .head h1 {
+  font-size: 40px;
+}
+.container .sidebar .head .add-note {
+  font-size: 20px;
+  background-color: #b5c18e;
+  font-weight: bold;
+  padding: 3px 8px 4px;
+  border-radius: 6px;
+  line-height: normal;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.container .sidebar .head .add-note:hover {
+  background-color: #9ea97b;
+}
+.container .main {
+  flex-grow: 1;
+  padding: 10px;
+  /* background-color: #134b70; */
+  background-color: #deac80;
+  overflow: hidden;
+}
+.container .main header {
+  padding: 10px;
+}
+.container .main header button {
+  /* color: #fff; */
+  padding: 6px;
+  background-color: #b5c18e;
+  margin: 0 5px;
+  border: 1px #eee solid;
+  border-radius: 3px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 200;
+  transition: 0.3s;
+}
+.container .main header button:hover {
+  background-color: #9ea97b;
+}
+.container .main header svg {
+  margin: 0 10px;
+  font-size: 20px;
+  pointer-events: none;
+}
+.container .main header span {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #eeeeee;
+  border-radius: 6px;
+}
+.container .main textarea {
+  min-width: 100%;
+  min-height: 80%;
+  border-radius: 2px;
+  border: none;
+  background-color: #fff;
+  padding: 5px;
+  font-size: 18px;
+}
+.container .main textarea:focus {
+  outline: none;
+}
+.container .main #preview {
+  background-color: #fffed3;
+  border-radius: 6px;
+  min-width: 100%;
+  max-height: 100%;
+  font-size: 18px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+.dashed {
+  text-decoration: line-through;
+}
+.italic {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}
+blockquote {
+  position: relative;
+  padding-left: 15px;
+  opacity: 0.5;
+}
+blockquote::before {
+  content: "";
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #134b70;
+}
+code {
+  padding: 0.2em 0 0.2em 0;
+  font-size: 95%;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 3px;
+  border-radius: 3px;
+}
+.note {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+  display: flex;
+  transition: 0.3s;
+}
+.note:hover {
+  background-color: #823f0c;
+}
+.note > div:first-child {
+  margin-right: auto;
+  flex-grow: 1;
+}
+.note span:not(:first-child) {
+  margin: 0 3px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.note span > svg {
+  pointer-events: none;
+}
+.note .delete:hover {
+  background-color: rgb(244, 58, 58);
+}
+.note .edit:hover {
+  background-color: #b5c18e;
+}
+.editPage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  background-color: #0000008d;
+}
+.editPage > div {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 30px;
+  border: 3px solid #914f1e;
+}
+.editPage > div div {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.editPage > div input {
+  font-size: 25px;
+  border-radius: 6px;
+  outline: none;
+  padding: 5px;
+  border: 1px solid #eee;
+  margin-right: 10px;
+}
+.editPage > div button {
+  font-size: 25px;
+  background-color: #914f1e;
+  border-radius: 6px;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+.editPage > div button:hover {
+  background-color: #823f0c;
+  cursor: pointer;
+}
+
+.deletePage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  background-color: #0000008d;
+}
+.deletePage > div {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 30px;
+  border: 3px solid #914f1e;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.deletePage > div div:first-child {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.deletePage > div button {
+  font-size: 25px;
+  background-color: #914f1e;
+  border-radius: 6px;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+.deletePage > div button:hover {
+  background-color: #823f0c;
+  cursor: pointer;
+}
